@@ -1,20 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-  scroll-behavior: smooth;
-  font-family: 'Fredoka', 'Quicksand', sans-serif; /* Fonte ultra redonda e lúdica */
+:root {
+  --brand-blue: #00A8E8;
+  --brand-purple: #6C5CE7;
+  --brand-yellow: #FFC107;
+  --brand-pink: #FF4757;
+  --brand-text: #2D3436;
 }
 
-body {
-  color: #222222; /* brand-text */
-  background-color: #F5F7FA; /* brand-light */
+.font-premium {
+  font-family: 'Playfair Display', serif;
 }
 
-/* Utilitários FunCare */
-.wavy-border {
-  border-radius: 40px;
+/* Efeito de Transparência do Menu */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
