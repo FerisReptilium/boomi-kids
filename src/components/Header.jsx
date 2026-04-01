@@ -28,14 +28,21 @@ const Header = () => {
   return (
     <>
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        {/* Barra Superior Corporativa */}
+        {/* Top Bar */}
         <div className="bg-brand-blue text-white text-[10px] py-1.5 px-6 lg:px-12 flex justify-between items-center font-bold">
           <div className="flex gap-6 items-center">
-            <a href="https://wa.me/5511919597811" target="_blank" className="flex items-center gap-2"><Phone size={12}/> (11) 91959-7811</a>
-            <span className="hidden md:flex items-center gap-2"><Mail size={12}/> contato@boomikids.com.br</span>
+            <a href="https://wa.me/5511919597811" target="_blank" className="flex items-center gap-2">
+              <Phone size={12}/> (11) 91959-7811
+            </a>
+            <span className="hidden md:flex items-center gap-2">
+              <Mail size={12}/> contato@boomikids.com.br
+            </span>
           </div>
           <div className="flex gap-4 items-center">
-            <span className="opacity-70">Tatuapé • SP</span>
+             <a href="https://instagram.com/escolaboomikids" target="_blank" className="hover:text-white/80 transition-colors">
+               <InstaIcon size={12} />
+             </a>
+             <span className="opacity-70">Tatuapé • SP</span>
           </div>
         </div>
       </div>
@@ -45,14 +52,12 @@ const Header = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           
-          {/* Logo Premium */}
           <a href="#inicio" className="relative z-50 transition-transform hover:scale-105">
             <div className="bg-white p-2 rounded-full shadow-lg border border-gray-50">
               <img src="/logo.png" alt="Logo Boomi Kids" className="h-16 w-16 md:h-20 md:w-20 object-contain" />
             </div>
           </a>
 
-          {/* Menu de Navegação Central */}
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-12">
             <ul className="flex gap-6">
               {navLinks.map((link) => (
@@ -65,7 +70,6 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Botão de Matrículas */}
           <div className="hidden lg:flex items-center">
             <a href="https://wa.me/5511919597811" target="_blank" className="bg-brand-yellow text-brand-text px-6 py-2.5 rounded-full font-black text-[10px] tracking-widest uppercase shadow-md hover:scale-105 transition-all">
               MATRÍCULAS 2026
@@ -77,12 +81,18 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Menu Mobile */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 shadow-xl">
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }} 
+              animate={{ opacity: 1, height: 'auto' }} 
+              exit={{ opacity: 0, height: 0 }} 
+              className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 shadow-xl"
+            >
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="font-bold text-xs py-2 uppercase text-brand-text" onClick={() => setIsMobileMenuOpen(false)}>{link.name}</a>
+                <a key={link.name} href={link.href} className="font-bold text-xs py-2 uppercase text-brand-text" onClick={() => setIsMobileMenuOpen(false)}>
+                  {link.name}
+                </a>
               ))}
             </motion.div>
           )}
