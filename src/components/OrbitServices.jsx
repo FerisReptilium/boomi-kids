@@ -69,7 +69,7 @@ const OrbitServices = () => {
             ))}
           </div>
 
-          {/* Centro (Círculo Principal) - COM A FOTO CORRETA DO BERÇÁRIO */}
+          {/* CENTRO (Círculo Principal) - COM A FOTO DE INTERAÇÃO REAL */}
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -79,9 +79,10 @@ const OrbitServices = () => {
           >
             <div className="w-72 h-72 md:w-96 md:h-96 rounded-full p-4 bg-white shadow-2xl relative border border-gray-100 flex items-center justify-center group overflow-hidden">
                <div className="w-full h-full rounded-full overflow-hidden absolute inset-2 bg-gray-100">
+                 {/* 📸 Usando a foto real da professora com aluno */}
                  <img 
-                    src="/gallery_bercario.png" 
-                    alt="Berçário e Acolhimento" 
+                    src="/teacher_child_orbit.png" 
+                    alt="Interação Afetiva Boomi Kids" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                </div>
