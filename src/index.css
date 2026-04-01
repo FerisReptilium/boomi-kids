@@ -1,9 +1,24 @@
+/* AS 3 LINHAS ABAIXO SÃO O QUE FAZEM O SITE FUNCIONAR - NÃO APAGUE */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --brand-blue: #00A8E8;
   --brand-purple: #6C5CE7;
   --brand-yellow: #FFC107;
   --brand-pink: #FF4757;
   --brand-text: #2D3436;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--brand-text);
+  background-color: #FDFDFF;
 }
 
 .font-premium {
