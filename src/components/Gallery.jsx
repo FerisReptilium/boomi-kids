@@ -29,7 +29,7 @@ const Gallery = () => {
     },
     {
       url: "/child_exploring_1774845003646.png",
-      title: "Exploração Livre",
+      title: "Pintura no Azulejo",
       size: "md:col-span-2 md:row-span-1",
       delay: 0.5
     }
