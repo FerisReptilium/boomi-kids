@@ -2,13 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Ícone do Instagram em SVG (para evitar erros de exportação do pacote)
-const InstaIcon = ({ size = 12 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
+// Ícone manual para não dar erro no GitHub
+const InstaIcon = ({ size = 16 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
 );
 
 const Header = () => {
@@ -16,9 +12,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -37,77 +31,44 @@ const Header = () => {
   return (
     <>
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <div className="bg-brand-blue text-white text-[10px] py-1.5 px-6 lg:px-12 flex justify-between items-center font-bold">
+        <div className="bg-[#00A8E8] text-white text-[10px] py-1.5 px-6 flex justify-between items-center font-bold">
           <div className="flex gap-6 items-center">
-            <a href="https://wa.me/5511919597811" target="_blank" className="flex items-center gap-2">
-              <Phone size={12}/> (11) 91959-7811
-            </a>
-            <span className="hidden md:flex items-center gap-2">
-              <Mail size={12}/> contato@boomikids.com.br
-            </span>
+            <a href="https://wa.me/5511919597811" target="_blank" className="flex items-center gap-2"><Phone size={12}/> (11) 91959-7811</a>
+            <span className="hidden md:flex items-center gap-2"><Mail size={12}/> contato@boomikids.com.br</span>
           </div>
           <div className="flex gap-4 items-center">
-             <a href="https://instagram.com/escolaboomikids" target="_blank" className="hover:text-white/80 transition-colors">
-               <InstaIcon size={14} />
-             </a>
+             <a href="https://instagram.com/escolaboomikids" target="_blank"><InstaIcon size={14} /></a>
              <span className="opacity-70">Tatuapé • SP</span>
           </div>
         </div>
       </div>
 
-      <header 
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 ${isScrolled ? 'top-0 py-2' : 'top-7 py-3'}`}
-      >
+      <header className={`fixed left-0 right-0 z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 ${isScrolled ? 'top-0 py-2' : 'top-7 py-3'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          
-          <a href="#inicio" className="relative z-50 transition-transform hover:scale-105">
-            <div className="bg-white p-2 rounded-full shadow-lg border border-gray-50">
-              <img src="/logo.png" alt="Logo Boomi Kids" className="h-16 w-16 md:h-20 md:w-20 object-contain" />
-            </div>
+          <a href="#inicio" className="bg-white p-2 rounded-full shadow-lg border border-gray-50">
+            <img src="/logo.png" alt="Logo" className="h-16 w-16 md:h-20 md:w-20 object-contain" />
           </a>
-
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-12">
             <ul className="flex gap-6">
               {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="font-black text-[10px] uppercase text-brand-text/70 hover:text-brand-blue transition-all tracking-[0.15em]">
-                    {link.name}
-                  </a>
-                </li>
+                <li key={link.name}><a href={link.href} className="font-black text-[10px] uppercase text-gray-600 hover:text-[#00A8E8] transition-all tracking-widest">{link.name}</a></li>
               ))}
             </ul>
           </nav>
-
-          <div className="hidden lg:flex items-center">
-            <a href="https://wa.me/5511919597811" target="_blank" className="bg-brand-yellow text-brand-text px-6 py-2.5 rounded-full font-black text-[10px] tracking-widest uppercase shadow-md hover:scale-105 transition-all">
-              MATRÍCULAS 2026
-            </a>
-          </div>
-
-          <button className="lg:hidden text-brand-text" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <a href="https://wa.me/5511919597811" target="_blank" className="hidden lg:block bg-[#FFC107] text-gray-800 px-6 py-2.5 rounded-full font-black text-[10px] tracking-widest uppercase">MATRÍCULAS 2026</a>
+          <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }} 
-              animate={{ opacity: 1, height: 'auto' }} 
-              exit={{ opacity: 0, height: 0 }} 
-              className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 shadow-xl"
-            >
-              {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="font-bold text-xs py-2 uppercase text-brand-text" onClick={() => setIsMobileMenuOpen(false)}>
-                  {link.name}
-                </a>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white px-6 py-4 flex flex-col gap-4 shadow-xl">
+            {navLinks.map((link) => (
+              <a key={link.name} href={link.href} className="font-bold text-xs py-2 uppercase" onClick={() => setIsMobileMenuOpen(false)}>{link.name}</a>
+            ))}
+          </div>
+        )}
       </header>
     </>
   );
 };
-
 export default Header;
