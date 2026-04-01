@@ -20,7 +20,7 @@ Seu papel é conversar amigavelmente com os pais interessados, tirar dúvidas r�
 **Diretrizes de Personalidade:**
 - Seja muito acolhedora, empática, educada e lúdica. Use emojis sutis 🦉✨.
 - Responda de forma EXTREMAMENTE CURTA E DIRETA (máximo de 2 a 3 frases por resposta).
-- Se o pai quiser agendar visita, ver preço ou matricular, **Diga para ele clicar no botão verde de WhatsApp ao lado**.
+- Se o pai quiser agendar visita, ver preço ou matricular, diga para ele clicar no botão verde de WhatsApp que fica no outro canto da tela.
 
 Responda sempre à última pergunta do usuário levando em consideração este conhecimento oficial.`;
 
@@ -47,9 +47,7 @@ const AIChat = () => {
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           systemPrompt: SYSTEM_PROMPT,
           messages: chatHistory.map(msg => ({
@@ -58,38 +56,24 @@ const AIChat = () => {
           }))
         })
       });
-
       const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Erro na API');
-      }
-
+      if (!response.ok) throw new Error(data.error || 'Erro na API');
       return data.content || data.choices?.[0]?.message?.content;
     } catch (error) {
-      console.error("Chat Error:", error);
-      return "Puxa, minha conexão com a internet deu um pequeno tropeço! 🦉 Você se importa de clicar no botão verde do WhatsApp ali do lado para falar rapidinho com nossa equipe humana?";
+      return "Puxa, minha conexão deu um tropeço! 🦉 Clique no botão verde do WhatsApp no outro canto para falar com nossa equipe!";
     }
   };
 
   const handleSend = async () => {
     if (!inputValue.trim()) return;
-
     const userMsg = { id: Date.now(), type: 'user', text: inputValue };
     const updatedHistory = [...messages, userMsg];
-    
     setMessages(updatedHistory);
     setInputValue('');
     setIsTyping(true);
-
     const botAnswerText = await fetchGroqResponse(updatedHistory);
-
     setMessages(prev => [...prev, { id: Date.now() + 1, type: 'bot', text: botAnswerText }]);
     setIsTyping(false);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') handleSend();
   };
 
   return (
@@ -97,15 +81,12 @@ const AIChat = () => {
       <motion.button 
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ delay: 2, type: 'spring' }}
+        transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 bg-brand-blue text-white p-4 rounded-full shadow-2xl hover:bg-blue-800 transition-all z-50 flex items-center justify-center border-4 border-white group w-16 h-16 ${isOpen ? 'hidden' : 'block'}`}
+        className={`fixed bottom-6 right-6 bg-[#1EA1F2] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all z-50 flex items-center justify-center border-4 border-white group w-16 h-16 ${isOpen ? 'hidden' : 'block'}`}
       >
         <Sparkles size={16} className="absolute -top-1 -right-1 text-brand-yellow animate-pulse" />
         <span className="text-[28px] leading-none">🦉</span>
-        <span className="absolute right-20 bg-white text-gray-800 border-l-4 border-brand-blue px-4 py-2 text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none rounded-r-xl">
-          Corujinha IA
-        </span>
       </motion.button>
 
       <AnimatePresence>
@@ -114,24 +95,20 @@ const AIChat = () => {
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed bottom-6 right-6 lg:right-10 w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[80vh] bg-white rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.2)] z-[60] flex flex-col overflow-hidden border border-gray-100"
+            className="fixed bottom-6 right-6 lg:right-10 w-[350px] max-w-[calc(100vw-2rem)] h-[550px] max-h-[85vh] bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-[100] flex flex-col overflow-hidden border border-gray-100"
           >
-            <div className="bg-gradient-to-r from-brand-blue to-blue-800 p-4 flex justify-between items-center text-white shrink-0">
+            <div className="bg-[#1EA1F2] p-5 flex justify-between items-center text-white">
               <div className="flex items-center gap-3">
                 <div className="bg-white/20 p-2 rounded-full relative flex items-center justify-center">
-                  <span className="text-[20px] leading-none flex items-center justify-center pt-0.5">🦉</span>
-                  <div className="w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-brand-blue absolute bottom-0 right-0"></div>
+                  <span className="text-[22px] leading-none">🦉</span>
+                  <div className="w-3 h-3 bg-green-400 rounded-full border-2 border-[#1EA1F2] absolute bottom-0 right-0"></div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">Corujinha IA</h3>
-                  <p className="text-xs text-white/70">Atendimento Inteligente 24h</p>
+                  <h3 className="font-bold text-sm">Corujinha Assistente</h3>
+                  <p className="text-[10px] text-white/70 uppercase tracking-widest font-bold">Online Agora</p>
                 </div>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-red-200 transition-colors bg-black/10 rounded-full p-1"
-              >
+              <button onClick={() => setIsOpen(false)} className="bg-black/10 hover:bg-black/20 p-2 rounded-full transition-colors">
                 <X size={20} />
               </button>
             </div>
@@ -139,61 +116,30 @@ const AIChat = () => {
             <div className="flex-1 bg-gray-50 p-4 overflow-y-auto flex flex-col gap-4">
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  
-                  {msg.type === 'bot' && (
-                    <div className="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0 mr-2 border border-brand-blue/20">
-                      <span className="text-[14px] leading-none">🦉</span>
-                    </div>
-                  )}
-
-                  <div 
-                    className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm leading-relaxed shadow-sm ${
-                      msg.type === 'user' 
-                        ? 'bg-brand-blue text-white rounded-br-none' 
-                        : 'bg-white text-gray-700 rounded-bl-none border border-gray-100'
-                    }`}
-                  >
+                  <div className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm ${msg.type === 'user' ? 'bg-[#1EA1F2] text-white rounded-br-none' : 'bg-white text-gray-700 rounded-bl-none shadow-sm border border-gray-100'}`}>
                     {msg.text}
                   </div>
                 </div>
               ))}
-              
-              {isTyping && (
-                <div className="flex justify-start">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0 mr-2 border border-brand-blue/20">
-                    <span className="text-[14px] leading-none">🦉</span>
-                  </div>
-                  <div className="bg-white border border-gray-100 px-4 py-3 rounded-2xl rounded-bl-none shadow-sm flex items-center gap-1.5">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
-                  </div>
-                </div>
-              )}
+              {isTyping && <div className="text-xs text-gray-400 ml-2 animate-pulse font-bold uppercase tracking-widest">Corujinha está digitando...</div>}
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="bg-white p-3 border-t border-gray-200 shrink-0">
-              <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full p-1 pl-4 focus-within:ring-2 focus-within:ring-brand-blue/50 focus-within:border-brand-blue transition-all">
+            <div className="p-4 bg-white border-t border-gray-100">
+              <div className="flex items-center gap-2 bg-gray-50 rounded-2xl p-2 pl-4 border border-gray-200">
                 <input 
                   type="text" 
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Escreva sua pergunta..."
-                  className="flex-1 bg-transparent text-sm text-gray-700 outline-none"
-                  disabled={isTyping}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                  placeholder="Olá! Como posso ajudar?"
+                  className="flex-1 bg-transparent text-sm outline-none"
                 />
-                <button 
-                  onClick={handleSend}
-                  disabled={!inputValue.trim() || isTyping}
-                  className={`p-2.5 rounded-full transition-all flex items-center justify-center shrink-0 ${inputValue.trim() && !isTyping ? 'bg-brand-yellow text-white shadow-md cursor-pointer hover:bg-yellow-500 hover:scale-105' : 'bg-gray-200 text-gray-400'}`}
-                >
-                  <Send size={16} className="-ml-1" />
+                <button onClick={handleSend} className="bg-[#FFD500] text-gray-900 p-3 rounded-xl hover:scale-105 transition-transform">
+                  <Send size={18} />
                 </button>
               </div>
             </div>
-
           </motion.div>
         )}
       </AnimatePresence>
