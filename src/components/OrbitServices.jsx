@@ -6,7 +6,7 @@ const OrbitServices = () => {
   const leftServices = [
     { title: "Equipe Capacitada", desc: "Profissionais em constante formação.", icon: <Award size={24} /> },
     { title: "Metodologias Ativas", desc: "Baseadas inteiramente no brincar.", icon: <BookOpen size={24} /> },
-    { title: "Observação Contínua", desc: "Registro diário do desenvolvimento.", icon: <Eye size={24} /> } // Mudou de Bus para Eye
+    { title: "Observação Contínua", desc: "Registro diário do desenvolvimento.", icon: <Eye size={24} /> } 
   ];
 
   const rightServices = [
@@ -62,16 +62,14 @@ const OrbitServices = () => {
                   <p className="text-sm text-gray-500">{service.desc}</p>
                 </div>
                 <div className="order-1 lg:order-2 w-16 h-16 shrink-0 bg-white border border-gray-100/50 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(229,201,116,0.3)] group-hover:shadow-[0_15px_40px_rgba(229,201,116,0.5)] group-hover:scale-110 transition-all relative">
-                  {/* Linha conectora desktop */}
                   <div className="hidden lg:block absolute right-[-40px] top-1/2 w-[40px] border-t border-dashed border-gray-300 -z-10"></div>
-                  {/* Clonagem do ícone para adicionar classes de cor independentes do lucide padrão */}
                   {React.cloneElement(service.icon, { className: "text-brand-blue group-hover:text-brand-yellow font-bold transition-colors" })}
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Centro (Círculo Principal) */}
+          {/* Centro (Círculo Principal) - COM A FOTO CORRETA DO BERÇÁRIO */}
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -82,8 +80,8 @@ const OrbitServices = () => {
             <div className="w-72 h-72 md:w-96 md:h-96 rounded-full p-4 bg-white shadow-2xl relative border border-gray-100 flex items-center justify-center group overflow-hidden">
                <div className="w-full h-full rounded-full overflow-hidden absolute inset-2 bg-gray-100">
                  <img 
-                    src="/child_exploring_1774845003646.png" 
-                    alt="Crianças aprendendo e brincando juntas" 
+                    src="/gallery_bercario.png" 
+                    alt="Berçário e Acolhimento" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                </div>
@@ -102,7 +100,6 @@ const OrbitServices = () => {
                 className="flex flex-col lg:flex-row items-center gap-6 max-w-xs group cursor-default"
               >
                 <div className="w-16 h-16 shrink-0 bg-white border border-gray-100/50 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(229,201,116,0.3)] group-hover:shadow-[0_15px_40px_rgba(229,201,116,0.5)] group-hover:scale-110 transition-all relative">
-                  {/* Linha conectora desktop */}
                   <div className="hidden lg:block absolute left-[-40px] top-1/2 w-[40px] border-t border-dashed border-gray-300 -z-10"></div>
                   {React.cloneElement(service.icon, { className: "text-brand-blue group-hover:text-brand-yellow font-bold transition-colors" })}
                 </div>
