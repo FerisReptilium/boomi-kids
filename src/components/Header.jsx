@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, Instagram as InstaIcon } from 'lucide-react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Ícone do Instagram em SVG (para evitar erros de exportação do pacote)
+const InstaIcon = ({ size = 12 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +37,6 @@ const Header = () => {
   return (
     <>
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        {/* Top Bar */}
         <div className="bg-brand-blue text-white text-[10px] py-1.5 px-6 lg:px-12 flex justify-between items-center font-bold">
           <div className="flex gap-6 items-center">
             <a href="https://wa.me/5511919597811" target="_blank" className="flex items-center gap-2">
@@ -40,7 +48,7 @@ const Header = () => {
           </div>
           <div className="flex gap-4 items-center">
              <a href="https://instagram.com/escolaboomikids" target="_blank" className="hover:text-white/80 transition-colors">
-               <InstaIcon size={12} />
+               <InstaIcon size={14} />
              </a>
              <span className="opacity-70">Tatuapé • SP</span>
           </div>
