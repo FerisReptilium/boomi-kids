@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         brand: {
+          // Cores Originais Mantidas e Refinadas
           purple: '#5C339E',    
           blue: '#1EA1F2',      
           green: '#97CC04',     
@@ -19,9 +20,12 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Quicksand', 'sans-serif'],
+        // Fontes Ultra-Premium (Outfit para leitura, Playfair para títulos)
+        sans: ['Outfit', 'Quicksand', 'sans-serif'],
+        premium: ['Playfair Display', 'serif'],
         fun: ['Fredoka', 'Quicksand', 'sans-serif']
       },
+      // Animação de Orbit que você já utilizava
       animation: {
         'orbit': 'orbit 20s linear infinite',
       },
