@@ -34,8 +34,8 @@ const About = () => {
           >
             <div className="rounded-[40px] overflow-hidden shadow-xl border-4 border-white relative z-10 bg-white p-2 transform -rotate-1 hover:rotate-0 hover:scale-[1.02] transition-all duration-500">
               <img 
-                src="/child_exploring_1774845003646.png" 
-                alt="Nosso Ideal de Educação" 
+                src="/hero_classroom_1774844989838.png" 
+                alt="Nossa Sala de Aula" 
                 className="w-full h-auto rounded-[32px] max-h-[600px] object-cover"
               />
             </div>
