@@ -34,16 +34,16 @@ function App() {
         <Contact />
       </main>
       
-      {/* WhatsApp Floating CTA (Symmetrical to AIChat) */}
+      {/* WHATSAPP PREMIUM (CANTO ESQUERDO) */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
         rel="noreferrer"
-        className="fixed bottom-6 left-6 md:bottom-8 md:left-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all z-40 flex items-center justify-center group w-16 h-16 border-2 border-white"
+        className="fixed bottom-6 left-6 md:bottom-10 md:left-10 bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:bg-green-600 hover:scale-110 transition-all z-50 flex items-center justify-center group w-16 h-16 border-4 border-white animate-pulse-gentle"
         aria-label="Falar conosco via WhatsApp"
       >
         <MessageCircle size={32} strokeWidth={2.5} />
-        <span className="absolute left-20 bg-white text-gray-800 border-l-4 border-[#25D366] px-4 py-2 text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none rounded-r-xl">
+        <span className="absolute left-20 bg-white text-gray-800 border-l-4 border-[#25D366] px-4 py-2 text-sm font-black shadow-2xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none rounded-r-xl uppercase tracking-widest">
           Conversar Agora
         </span>
       </a>
