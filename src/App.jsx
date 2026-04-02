@@ -1,3 +1,5 @@
+// 1. src/App.jsx
+// Restaurado seu layout original com o WhatsApp na esquerda e IDs de navegação corretos
 import React from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
@@ -29,7 +31,7 @@ function App() {
         <div id="contato"><Contact /></div>
       </main>
       
-      {/* WHATSAPP NO CANTO ESQUERDO */}
+      {/* WHATSAPP NO CANTO ESQUERDO (FIXADO) */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
@@ -40,6 +42,7 @@ function App() {
         <MessageCircle size={32} />
       </a>
 
+      {/* CORUJINHA IA NO CANTO DIREITO */}
       <AIChat />
     </div>
   );
