@@ -29,7 +29,7 @@ function App() {
         <div id="contato"><Contact /></div>
       </main>
       
-      {/* WHATSAPP NO CANTO ESQUERDO PARA NÃO BATER NA CORUJINHA */}
+      {/* WHATSAPP NO CANTO ESQUERDO */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
@@ -40,7 +40,6 @@ function App() {
         <MessageCircle size={32} />
       </a>
 
-      {/* CORUJINHA IA NO CANTO DIREITO */}
       <AIChat />
     </div>
   );
