@@ -2,47 +2,72 @@ import React from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import FeaturesStrip from './components/FeaturesStrip.jsx';
-import OrbitServices from './components/OrbitServices.jsx'; // <--- Trazendo de volta!
 import About from './components/About.jsx';
+import OrbitServices from './components/OrbitServices.jsx';
 import Classes from './components/Classes.jsx';
 import Differentiators from './components/Differentiators.jsx';
 import Gallery from './components/Gallery.jsx';
 import Nutrition from './components/Nutrition.jsx';
+import Testimonials from './components/Testimonials.jsx';
 import FAQ from './components/FAQ.jsx';
 import Contact from './components/Contact.jsx';
 import AIChat from './components/AIChat.jsx';
+import AccessibilityWidget from './components/AccessibilityWidget.jsx'; // Restaurado!
+import WaveDivider from './components/WaveDivider.jsx';
 import { MessageCircle } from 'lucide-react';
 
 function App() {
   return (
     <div className="font-sans antialiased text-brand-text w-full overflow-x-hidden pt-12 relative bg-[#FDFDFF]">
+      
+      {/* WIDGET DE ACESSIBILIDADE - LADO ESQUERDO */}
+      <AccessibilityWidget />
+
       <Header />
       
       <main>
-        <div id="inicio"><Hero /></div>
+        <Hero />
         <FeaturesStrip />
         
-        {/* SETOR DA FOTO REDONDA RESTAURADO AQUI */}
-        <div id="servicos"><OrbitServices /></div> 
+        <WaveDivider color="#FDFDFF" />
+        <About />
+
+        <div className="bg-brand-blue/5">
+          <WaveDivider color="#FDFDFF" flip={true} />
+          <OrbitServices />
+          <WaveDivider color="#FDFDFF" />
+        </div>
+
+        <Classes />
+
+        <div className="bg-gray-50">
+          <WaveDivider color="#FDFDFF" flip={true} />
+          <Differentiators />
+          <WaveDivider color="#FDFDFF" />
+        </div>
+
+        <Gallery />
+        <Nutrition />
+        <Testimonials />
+        <FAQ />
         
-        <div id="sobre"><About /></div>
-        <div id="turmas"><Classes /></div>
-        <div id="diferenciais"><Differentiators /></div>
-        <div id="galeria"><Gallery /></div>
-        <div id="nutricao"><Nutrition /></div>
-        <div id="faq"><FAQ /></div>
-        <div id="contato"><Contact /></div>
+        <div className="bg-brand-blue shadow-inner relative overflow-hidden">
+           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+           <Contact />
+        </div>
       </main>
       
-      {/* WHATSAPP NO CANTO ESQUERDO */}
+      {/* WHATSAPP (LADO ESQUERDO INFERIOR) */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
         rel="noreferrer"
-        className="fixed bottom-6 left-6 md:bottom-10 md:left-10 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all z-50 flex items-center justify-center border-4 border-white animate-pulse-gentle"
-        aria-label="WhatsApp"
+        className="fixed bottom-6 left-6 md:bottom-10 md:left-10 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all z-50 flex items-center justify-center group w-16 h-16 border-4 border-white animate-pulse-gentle"
       >
-        <MessageCircle size={32} />
+        <MessageCircle size={32} strokeWidth={2.5} />
+        <span className="absolute left-20 bg-white text-gray-800 border-l-4 border-[#25D366] px-4 py-2 text-sm font-black shadow-2xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none rounded-r-xl uppercase tracking-widest">
+          Conversar Agora
+        </span>
       </a>
 
       <AIChat />
