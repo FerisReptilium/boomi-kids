@@ -1,6 +1,7 @@
+// 2. src/components/Header.jsx
+// Restaurado seu Top Bar original com os links ativos e e-mail oficial
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const InstaIcon = ({ size = 16 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -29,14 +30,14 @@ const Header = () => {
   return (
     <>
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <div className="bg-[#1EA1F2] text-white text-[10px] py-1.5 px-6 lg:px-12 flex justify-between items-center font-bold">
+        <div className="bg-[#1EA1F2] text-white text-[10px] py-1.5 px-6 lg:px-12 flex justify-between items-center font-bold tracking-widest">
           <div className="flex gap-6 items-center">
             <a href="https://wa.me/5511919597811" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-80 transition-opacity"><Phone size={12}/> (11) 91959-7811</a>
             <a href="mailto:escolaboomikids@gmail.com" className="hidden md:flex items-center gap-2 hover:opacity-80 transition-opacity"><Mail size={12}/> escolaboomikids@gmail.com</a>
           </div>
           <div className="flex gap-4 items-center">
             <a href="https://www.instagram.com/escolaboomikids/" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform"><InstaIcon size={14}/></a>
-            <span className="opacity-70 uppercase tracking-widest">Tatuapé • SP</span>
+            <span className="opacity-70 uppercase">Tatuapé • SP</span>
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <a href="https://wa.me/5511919597811" target="_blank" rel="noreferrer" className="hidden lg:block bg-[#FFD500] text-gray-900 px-6 py-2.5 rounded-full font-black text-[10px] tracking-widest shadow-md">MATRÍCULAS 2026</a>
+          <a href="https://wa.me/5511919597811" target="_blank" rel="noreferrer" className="hidden lg:block bg-[#FFD500] text-gray-900 px-6 py-2.5 rounded-full font-black text-[10px] tracking-widest uppercase shadow-md hover:scale-105 transition-transform">MATRÍCULAS 2026</a>
           <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
