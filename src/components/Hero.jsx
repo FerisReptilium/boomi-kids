@@ -92,7 +92,7 @@ const Hero = () => {
         <motion.p 
           className="text-gray-800 bg-white/80 backdrop-blur-md px-10 py-6 rounded-[3rem] text-lg font-bold max-w-xl mb-10 leading-relaxed border-2 border-white shadow-2xl"
         >
-          Transformamos a educação infantil em uma grande aventura diária, oferecendo estrutura segura, aconchegante e voltada para o protagonismo da criança.
+          Transformamos a Educação Infantil em uma grande aventura diária, oferecendo estrutura segura, aconchegante e voltada para o protagonismo da criança.
         </motion.p>
       </div>
     </section>
