@@ -1,16 +1,14 @@
-// 1. ARQUIVO: src/components/Gallery.jsx
-// Ajustado para o nome '_real' e com visual robusto
 import React from 'react';
 import { motion } from 'framer-motion';
 
 const Gallery = () => {
   const images = [
     { url: "/gallery_bercario.png", title: "Berçário", size: "md:col-span-2 md:row-span-2", delay: 0.1 },
-    { url: "/gallery_atelie.png", title: "Ateliê", size: "md:col-span-1 md:row-span-1", delay: 0.2 },
-    { url: "/gallery_movimento.png", title: "Circuito Motor", size: "md:col-span-1 md:row-span-2", delay: 0.3 },
+    { url: "/gallery_atelie.png", title: "Nossa Sala", size: "md:col-span-1 md:row-span-1", delay: 0.2 }, // Trocado Ateliê -> Nossa Sala
+    { url: "/gallery_movimento.png", title: "Parque", size: "md:col-span-1 md:row-span-2", delay: 0.3 }, // Trocado Circuito Motor -> Parque
     { url: "/gallery_refectorio_real.png", title: "Refeitório Nutritivo", size: "md:col-span-1 md:row-span-1", delay: 0.4 },
-    { url: "/hero_classroom_1774844989838.png", title: "Nossa Sala", size: "md:col-span-1 md:row-span-1", delay: 0.5 },
-    { url: "/child_exploring_1774845003646.png", title: "Exploração", size: "md:col-span-2 md:row-span-1", delay: 0.6 }
+    { url: "/hero_classroom_1774844989838.png", title: "Espaçoso", size: "md:col-span-1 md:row-span-1", delay: 0.5 }, // Renomeei para evitar duplicata
+    { url: "/child_exploring_1774845003646.png", title: "Ateliê de Artes", size: "md:col-span-2 md:row-span-1", delay: 0.6 } // Trocado Exploração -> Ateliê de Artes
   ];
 
   return (
