@@ -2,72 +2,65 @@ import React from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import FeaturesStrip from './components/FeaturesStrip.jsx';
-import About from './components/About.jsx';
 import OrbitServices from './components/OrbitServices.jsx';
+import About from './components/About.jsx';
 import Classes from './components/Classes.jsx';
 import Differentiators from './components/Differentiators.jsx';
 import Gallery from './components/Gallery.jsx';
 import Nutrition from './components/Nutrition.jsx';
-import Testimonials from './components/Testimonials.jsx';
 import FAQ from './components/FAQ.jsx';
 import Contact from './components/Contact.jsx';
 import AIChat from './components/AIChat.jsx';
-import AccessibilityWidget from './components/AccessibilityWidget.jsx'; // Restaurado!
-import WaveDivider from './components/WaveDivider.jsx';
+import AccessibilityWidget from './components/AccessibilityWidget.jsx'; // ♿ VOLTOU!
+import WaveDivider from './components/WaveDivider.jsx'; // 🌊 PARA O DESIGN PREMIUM
 import { MessageCircle } from 'lucide-react';
 
 function App() {
   return (
     <div className="font-sans antialiased text-brand-text w-full overflow-x-hidden pt-12 relative bg-[#FDFDFF]">
       
-      {/* WIDGET DE ACESSIBILIDADE - LADO ESQUERDO */}
+      {/* ACESSIBILIDADE SEMPRE VISÍVEL NO LADO ESQUERDO */}
       <AccessibilityWidget />
 
       <Header />
       
       <main>
-        <Hero />
-        <FeaturesStrip />
+        <div id="inicio">
+          <Hero />
+          <FeaturesStrip />
+        </div>
         
-        <WaveDivider color="#FDFDFF" />
-        <About />
-
-        <div className="bg-brand-blue/5">
+        {/* TRANSIÇÃO SUAVE PARA O SETOR DA FOTO REDONDA */}
+        <div id="servicos" className="bg-white">
           <WaveDivider color="#FDFDFF" flip={true} />
           <OrbitServices />
           <WaveDivider color="#FDFDFF" />
-        </div>
-
-        <Classes />
-
-        <div className="bg-gray-50">
-          <WaveDivider color="#FDFDFF" flip={true} />
-          <Differentiators />
-          <WaveDivider color="#FDFDFF" />
-        </div>
-
-        <Gallery />
-        <Nutrition />
-        <Testimonials />
-        <FAQ />
+        </div> 
         
-        <div className="bg-brand-blue shadow-inner relative overflow-hidden">
-           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-           <Contact />
+        <div id="about"><About /></div>
+        
+        <div id="turmas" className="bg-gray-50/30">
+           <WaveDivider color="#FDFDFF" flip={true} />
+           <Classes />
+           <WaveDivider color="#FDFDFF" />
         </div>
+
+        <div id="diferenciais"><Differentiators /></div>
+        <div id="galeria"><Gallery /></div>
+        <div id="nutricao"><Nutrition /></div>
+        <div id="faq"><FAQ /></div>
+        <div id="contato"><Contact /></div>
       </main>
       
-      {/* WHATSAPP (LADO ESQUERDO INFERIOR) */}
+      {/* WHATSAPP NO CANTO ESQUERDO */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
         rel="noreferrer"
-        className="fixed bottom-6 left-6 md:bottom-10 md:left-10 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all z-50 flex items-center justify-center group w-16 h-16 border-4 border-white animate-pulse-gentle"
+        className="fixed bottom-6 left-6 md:bottom-10 md:left-10 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all z-50 flex items-center justify-center border-4 border-white animate-pulse-gentle w-16 h-16"
+        aria-label="WhatsApp"
       >
-        <MessageCircle size={32} strokeWidth={2.5} />
-        <span className="absolute left-20 bg-white text-gray-800 border-l-4 border-[#25D366] px-4 py-2 text-sm font-black shadow-2xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none rounded-r-xl uppercase tracking-widest">
-          Conversar Agora
-        </span>
+        <MessageCircle size={32} />
       </a>
 
       <AIChat />
