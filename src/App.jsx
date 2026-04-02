@@ -1,9 +1,8 @@
-// 1. src/App.jsx
-// Restaurado seu layout original com o WhatsApp na esquerda e IDs de navegação corretos
 import React from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import FeaturesStrip from './components/FeaturesStrip.jsx';
+import OrbitServices from './components/OrbitServices.jsx'; // <--- Trazendo de volta!
 import About from './components/About.jsx';
 import Classes from './components/Classes.jsx';
 import Differentiators from './components/Differentiators.jsx';
@@ -22,6 +21,10 @@ function App() {
       <main>
         <div id="inicio"><Hero /></div>
         <FeaturesStrip />
+        
+        {/* SETOR DA FOTO REDONDA RESTAURADO AQUI */}
+        <div id="servicos"><OrbitServices /></div> 
+        
         <div id="sobre"><About /></div>
         <div id="turmas"><Classes /></div>
         <div id="diferenciais"><Differentiators /></div>
@@ -31,7 +34,7 @@ function App() {
         <div id="contato"><Contact /></div>
       </main>
       
-      {/* WHATSAPP NO CANTO ESQUERDO (FIXADO) */}
+      {/* WHATSAPP NO CANTO ESQUERDO */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
@@ -42,7 +45,6 @@ function App() {
         <MessageCircle size={32} />
       </a>
 
-      {/* CORUJINHA IA NO CANTO DIREITO */}
       <AIChat />
     </div>
   );
