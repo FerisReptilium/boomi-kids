@@ -11,48 +11,52 @@ import Nutrition from './components/Nutrition.jsx';
 import FAQ from './components/FAQ.jsx';
 import Contact from './components/Contact.jsx';
 import AIChat from './components/AIChat.jsx';
-import AccessibilityWidget from './components/AccessibilityWidget.jsx'; // ♿ VOLTOU!
-import WaveDivider from './components/WaveDivider.jsx'; // 🌊 PARA O DESIGN PREMIUM
+import AccessibilityWidget from './components/AccessibilityWidget.jsx'; // ♿ FOCO AQUI: Importação recuperada
+import WaveDivider from './components/WaveDivider.jsx';
 import { MessageCircle } from 'lucide-react';
 
 function App() {
   return (
-    <div className="font-sans antialiased text-brand-text w-full overflow-x-hidden pt-12 relative bg-[#FDFDFF]">
+    <div className="font-sans antialiased text-brand-text w-full overflow-x-hidden relative bg-[#FDFDFF]">
       
-      {/* ACESSIBILIDADE SEMPRE VISÍVEL NO LADO ESQUERDO */}
+      {/* ♿ BOTÃO DE ACESSIBILIDADE - LADO ESQUERDO CENTRAL */}
       <AccessibilityWidget />
 
       <Header />
       
-      <main>
+      <main className="pt-12">
         <div id="inicio">
           <Hero />
           <FeaturesStrip />
         </div>
         
-        {/* TRANSIÇÃO SUAVE PARA O SETOR DA FOTO REDONDA */}
+        {/* SETOR DA FOTO REDONDA COM TRANSIÇÃO EM ONDA */}
         <div id="servicos" className="bg-white">
           <WaveDivider color="#FDFDFF" flip={true} />
           <OrbitServices />
           <WaveDivider color="#FDFDFF" />
         </div> 
         
-        <div id="about"><About /></div>
+        <div id="sobre"><About /></div>
         
-        <div id="turmas" className="bg-gray-50/30">
-           <WaveDivider color="#FDFDFF" flip={true} />
-           <Classes />
-           <WaveDivider color="#FDFDFF" />
+        {/* TURMAS COM FUNDO SUAVE */}
+        <div id="turmas" className="bg-gray-50/50">
+          <WaveDivider color="#FDFDFF" flip={true} />
+          <Classes />
+          <WaveDivider color="#FDFDFF" />
         </div>
 
         <div id="diferenciais"><Differentiators /></div>
         <div id="galeria"><Gallery /></div>
         <div id="nutricao"><Nutrition /></div>
         <div id="faq"><FAQ /></div>
-        <div id="contato"><Contact /></div>
+        
+        <div id="contato" className="bg-brand-blue shadow-inner relative overflow-hidden">
+           <Contact />
+        </div>
       </main>
       
-      {/* WHATSAPP NO CANTO ESQUERDO */}
+      {/* WHATSAPP NO CANTO ESQUERDO INFERIOR */}
       <a 
         href="https://wa.me/5511919597811" 
         target="_blank" 
